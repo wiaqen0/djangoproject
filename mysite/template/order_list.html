@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order</title>
+    {% load static %}
+    <link href="{% static 'main1.css' %}" rel='stylesheet'>
+</head>
+<body>
+{% if messages %}
+    {% for message in messages %}
+    {% if message.tags %}
+      <script>alert("{{ message }}")</script> 
+    {% endif %}
+    {% endfor %}
+{% endif %}
+<ul class="menu">
+    <div class="menu_icon"></div>
+      <li><a href="../">Main Menu</a></li>
+      <li><a href="../order/chicken">Chicken</a></li>
+      <li><a href="../order/pizza">Pizza</a></li>
+      <li><a href="../order/combo">Combo</a></li>
+      <li><a href="../order/asian">Asian food</a></li>
+      <li><a href="../order/beverage">Beverage</a></li>
+</ul>
+    <section class = "product_list">
+    <h1>
+        <span>Menu</span>
+    </h1>
+    <div class = "product_container">
+    {% for food in orders %}
+        <div class = "card">
+            <div class="card_image"> 
+                <img src="{{food.image.url}}" alt="" class = "c_image">
+            </div>
+            <div class = "card_description">
+            {{food.desc}}
+            </div>
+            {% if food.d_price == 0 %}
+            <div class = "card_price">
+                ${{food.price}}
+            </div>  
+            {% else %}
+            <div class = "card_price1">
+                <s>${{food.price}}</s>
+            <span class = "d_price">
+                    ${{food.d_price}}
+            </span>
+            </div>
+            {% endif %} 
+            <button class = "card_button">
+                <a method="POST" href="{{food.id}}">Order</a>
+            </button>
+        </div>
+    {% endfor %}
+    </div>
+</section>
+</body>
+</html>

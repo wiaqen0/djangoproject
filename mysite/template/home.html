@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if messages %}
+    {% for message in messages %}
+    {% if message.tags %}
+      <script>alert("{{ message }}")</script> 
+    {% endif %}
+    {% endfor %}
+{% endif %}
+{% load static %}
+<header class="banner">
+    <div class="header-banner"></div>
+    <nav>
+        <div class="site-logo" href = "#"><img src="{% static 'trans_nlogo1.png' %}" class="logo"></div>
+        <ul>
+            <li><a href="order/order"><img src="{% static 'Cart_Icon.png' %}"></a></li>
+            <li><a href="#menu"><img src="{% static 'Order_Icon.png' %}"></a></li>
+            {% if user.is_authenticated %}
+            {% if user.is_superuser %}
+            <li><a href="chart"><img src="{% static 'Statistic.png' %}"></a></li>
+            {% endif %}
+            <li><a href="register/logout"><img src="{% static 'Logout_Icon.png' %}"></a></li>
+            {% else %}
+            <li><a href="register/login"><img src="{% static 'User_Icon.png' %}"></a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
+<body>
+<div class = "food_intro">
+    <div style="width:100%; height: 200px; background: white;">
+    <div class= "space1">
+        <h2 class="font_h2"><span>Food</span></h2>
+    </div>
+    <div class = "space2">
+        <p class = "font">Best-sellers</p>
+    </div>
+    </div>
+    <div class = "food_container">
+        <div>
+            <img src="{% static 'burger.png' %}" class = "food_img">
+        </div>
+        <div class="text">
+                <h2 class="font_h2"><span>Strawberry soda</span></h2>
+
+
+                <p class = "font">The best-seller soda of all time</p>
+
+        </div>
+        <div>
+            <img src="{% static 'garan_about.png' %}" class = "food_img">
+        </div>
+    </div>
+    <div class = "food_container">
+        <div class="text">
+            <h2 class="font_h2"><span>Hamburger</span></h2>
+
+
+            <p class = "font">Big beef hamburger with rich cheese layer, combined with Coca-Cola beverage.</p>
+
+    </div>
+        <div>
+            <img src="{% static 'soda.png' %}" class = "food_img">
+        </div>
+        <div class="text">
+            <h2 class="font_h2"><span>US BBQ CHICKEN</span></h2>
+
+
+            <p class = "font">The crispy chicken skin is served with the sauce with an indescribably delicious taste.</p>
+
+    </div>
+    </div>
+</div>
+<div class="spacex" style="width:100%; height: 200px; background: #ffffff;">
+    <div class= "space1">
+        <h2 class="font_h2"><span>Weow</span></h2>
+    </div>
+    <div class = "space2">
+        <p class = "font">Not Meow, we are Weow</p>
+    </div>
+</div>
+<div class = "about">
+        <div class="about_text">
+            <div style="margin-left: 5%; margin-right: 5%;">
+            <h2 class="font_h2"><span>Who We Are</span></h2>
+            <p class = "font">WEOW, which was founded in 2003, is no longer a strange name to fast food enthusiasts. WEOW's unique offering includes not only traditional Vietnamese childhood flavors, but also delectable flavors from around the world. WEOW's mission is to ensure your satisfaction and comfort at all times. For more information, click the button below.</p>
+            <a href="https://drive.google.com/drive/u/1/folders/1WDbeB5M7RjVSToyd9uTJbtiWzwVxcHww"><button class="button">Weow</button></a>
+            </div>
+        </div>    
+        <div class="about_img">
+            <img src="{% static 'about.png' %}" class = "about_img">
+        </div>
+</div>
+<div class="spacex" style="width:100%; height: 200px; background: #ffffff;">
+    <div class= "space1">
+        <h2 class="font_h2"><span>Menu</span></h2>
+    </div>
+    <div class = "space2">
+        <p class = "font">Foods That Lift Your Mood</p>
+    </div>
+</div>
+<div class = "menu chicken" id = "menu">
+    <div class ="shadow">
+    <h2 class="menu_text"><span>CHICKEN</span></h2>
+    <a href="order/chicken" class="centerbutton">
+        <button class="learn-more">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">Order</span>
+        </button></a>
+    </div>
+</div>
+<div class = "menu pizza">
+    <div class ="shadow">
+    <h2 class="menu_text"><span>PIZZA</span></h2>
+    <a href="order/pizza" class="centerbutton">
+        <button class="learn-more">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">Order</span>
+        </button></a>
+    </div>
+</div>
+<div class = "menu combo">
+    <div class ="shadow">
+    <h2 class="menu_text"><span>COMBO</span></h2>
+    <a href="order/combo" class="centerbutton">
+        <button class="learn-more">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">Order</span>
+        </button></a>
+    </div>
+</div>
+<div class = "menu asian">
+    <div class ="shadow">
+    <h2 class="menu_text"><span>ASIAN FOODS</span></h2>
+    <a href="order/asian" class="centerbutton">
+        <button class="learn-more">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">Order</span>
+        </button></a>
+    </div>
+</div>
+<div class = "menu beverage">
+    <div class ="shadow">
+    <h2 class="menu_text"><span>BEVERAGE</span></h2>
+    <a href="order/beverage" class="centerbutton">
+        <button class="learn-more">
+        <span class="circle" aria-hidden="true">
+          <span class="icon arrow"></span>
+        </span>
+        <span class="button-text">Order</span>
+        </button></a>
+    </div>
+</div>
+</body>
+<div class="footer-clean">
+    <footer>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-4 col-md-3 item">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#menu">Order</a></li>
+                        <li><a href="register/register">Register</a></li>
+                        <li><a href="register/login">Login</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 item">
+                    <h3>About</h3>
+                    <ul>
+                        <li><a href="https://drive.google.com/drive/u/1/folders/1WDbeB5M7RjVSToyd9uTJbtiWzwVxcHww">Company</a></li>
+                        <li><a href="https://drive.google.com/drive/u/1/folders/1WDbeB5M7RjVSToyd9uTJbtiWzwVxcHww">Team</a></li>
+                        <li><a href="https://drive.google.com/drive/u/1/folders/1WDbeB5M7RjVSToyd9uTJbtiWzwVxcHww">Legacy</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 col-md-3 item">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>Number: +84 582 696 460</li>
+                        <li>Address: 6 Town, Linh Trung Ward, Thu Duc District, Ho Chi Minh City </li>
+                        <li>Email: weow21406c@gmail.com </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 item social">
+                    <p class="copyright">WEOW © 2022</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+{% endblock %}

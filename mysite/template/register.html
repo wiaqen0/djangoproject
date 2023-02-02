@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Log in to Weow</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% load static %}
+        <link href="{% static 'register.css' %}" rel='stylesheet'>
+    </head>
+    <body>
+        <h2>Welcome to Weow</h2>
+    <div class="container" id="container">
+        <div class="form-container sign-in-container">
+            <form action="register" method = "POST" id="register">
+                <h1>Sign up</h1>
+                <br>
+                {% csrf_token %}
+                <input type="text" name="first" placeholder="First name" /> 
+                <input type="text" name= "last" placeholder="Last name" />
+                <input type="email" name="email" placeholder="Email" />  
+                <input type="text" name="username" placeholder="Username" />
+                <input type="password" name="password1" placeholder="Password" />
+                <input type="password" name="password2" placeholder="Confirm password" />
+                <button form = "register" type="submit" class="btn btn-primary">Sign in</button>
+                <p><a href = "login">Đã có tài khoản? Đăng nhập ngay!</a></p>
+                <p>{{error}}</p>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <img src="{% static 'trans_logo.png' %}" width="300px">
+                    <p>Đặt đồ ăn ở đây ngon vl!</p>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
